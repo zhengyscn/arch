@@ -18,14 +18,14 @@ Producter --> kafka --> Consumer
 ```
 
 
-## install
+## Package
 ```
 # wget https://ftp.cc.uoc.gr/mirrors/apache/kafka/2.1.0/kafka_2.12-2.1.0.tgz
 # wget https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz?AuthParam=1545389505_61b51a9b8478f98d8e10001923116c7f
 
 ```
 
-## start
+## Start
 ```
 # cd /usr/local/kafka
 # ./bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
@@ -36,6 +36,14 @@ Producter --> kafka --> Consumer
 tcp6       0      0 :::2181                 :::*                    LISTEN      20283/java          
 tcp6       0      0 :::38100                :::*                    LISTEN      20283/java
 
+# vim config/server.properties
+broker.id=xxx 集群的唯一标识，每个节点唯一
+# ./bin/kafka-server-start.sh config/server.properties
+# ./bin/kafka-server-start.sh -daemon config/server.properties
 ```
 
-$ jps -l
+## Create
+```
+./bin/kafka-topics.sh --zookeeper 10.13.128.229:2181 --create --topic vkops --replication-factor 2 --partitions 2
+
+```
