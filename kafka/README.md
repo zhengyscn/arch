@@ -28,6 +28,9 @@ Producter --> kafka --> Consumer
 ## Start
 ```
 --- 启动zookeeper集群 ---
+# cp conf/zoo_sample.cfg conf/zoo.cfg
+# ./bin/zkServer.sh start
+
 
 --- 启动kafka集群 ---
 # cd /usr/local/kafka
